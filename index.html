@@ -1,185 +1,255 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>NEXORA Technologies</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">NEXORA</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NEXORA Technologies</title>
+  <meta name="description" content="NEXORA Technologies brings specialist teams and trusted technology partners together to deliver real-world results.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+  <style>
+    :root { --navy:#140b2e; --purple:#6d3df5; --purple-d:#5527d6; --soft:#f4f2fb; --muted:#5b5870; }
+    body { font-family: system-ui, "Segoe UI", Roboto, sans-serif; color:#1b1730; line-height:1.65; }
+    h1,h2,h3,h4 { font-weight:700; letter-spacing:-.015em; }
+    section { padding:5rem 0; }
+    .tag { color:var(--purple); font-weight:700; font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; }
+    .rule { width:56px; height:4px; background:var(--purple); border:0; opacity:1; margin:.75rem 0 1.25rem; }
+    .btn-brand { background:var(--purple); border-color:var(--purple); color:#fff; font-weight:600; padding:.7rem 1.5rem; border-radius:50rem; }
+    .btn-brand:hover { background:var(--purple-d); border-color:var(--purple-d); color:#fff; }
+    .btn-line { border:2px solid #fff; color:#fff; font-weight:600; padding:.65rem 1.5rem; border-radius:50rem; }
+    .btn-line:hover { background:#fff; color:var(--navy); }
+    :focus-visible { outline:3px solid var(--purple); outline-offset:2px; }
+
+    .topbar { background:var(--navy); color:#cfc8ee; font-size:.85rem; padding:.4rem 0; }
+    .topbar a { color:#fff; text-decoration:none; font-weight:600; }
+    .navbar { background:#fff; box-shadow:0 1px 0 #e6e3f2; }
+    .navbar-brand { font-weight:800; font-size:1.5rem; color:var(--navy); letter-spacing:.04em; }
+    .navbar-brand span { color:var(--purple); }
+    .nav-link { color:var(--navy); font-weight:600; }
+    .nav-link:hover, .nav-link.active { color:var(--purple); }
+
+    .hero { position:relative; color:#fff; padding:7rem 0 9rem; background:linear-gradient(120deg, rgba(20,11,46,.93) 30%, rgba(109,61,245,.55)), url("https://picsum.photos/seed/nexora-hero/1800/900") center/cover; }
+    .hero h1 { font-size:clamp(2.2rem,5vw,3.8rem); max-width:16ch; line-height:1.08; }
+    .hero p { max-width:36rem; color:#ddd7f7; font-size:1.15rem; }
+    .stats { margin-top:-4.5rem; position:relative; z-index:2; }
+    .stats .box { background:#fff; border-radius:1rem; box-shadow:0 18px 40px rgba(20,11,46,.15); padding:1.75rem 1rem; }
+    .stat { text-align:center; padding:.5rem; }
+    .stat svg { width:34px; height:34px; color:var(--purple); }
+    .stat strong { display:block; font-size:1.8rem; font-weight:800; color:var(--navy); }
+    .stat span { color:var(--muted); font-size:.85rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; }
+
+    .impact p { color:var(--muted); font-size:1.1rem; }
+    .market { border:0; border-radius:1rem; overflow:hidden; height:100%; background:#fff; box-shadow:0 4px 18px rgba(20,11,46,.08); }
+    .market img { height:190px; object-fit:cover; }
+    .market p { color:var(--muted); margin:0; font-size:.95rem; }
+    .bg-soft { background:var(--soft); }
+
+    .why-img { border-radius:1rem; height:210px; object-fit:cover; width:100%; }
+    .why p { color:var(--muted); }
+
+    .engine { background:var(--navy); color:#fff; background-image:radial-gradient(circle at 85% 20%, rgba(109,61,245,.45), transparent 45%); }
+    .engine p { color:#cfc8ee; max-width:44rem; }
+    .engine .step { border-left:3px solid var(--purple); padding-left:1rem; }
+    .engine .step strong { display:block; }
+    .engine .step span { color:#cfc8ee; font-size:.95rem; }
+
+    .partners .logo { display:flex; align-items:center; justify-content:center; height:76px; border:1px solid #e6e3f2; border-radius:.75rem; font-weight:800; color:#8a86a0; letter-spacing:.06em; background:#fff; }
+
+    .leaders img { border-radius:1rem; width:100%; height:100%; min-height:300px; object-fit:cover; }
+    .leaders p { color:var(--muted); }
+
+    .cta { color:#fff; text-align:center; background:linear-gradient(rgba(20,11,46,.85), rgba(20,11,46,.85)), url("https://picsum.photos/seed/nexora-cta/1800/700") center/cover; }
+    .cta p { max-width:40rem; margin:0 auto 1.75rem; color:#ddd7f7; }
+
+    footer { background:#0d0720; color:#b3add0; padding:3.5rem 0 1.5rem; font-size:.95rem; }
+    footer a { color:#e9e5fb; text-decoration:none; }
+    footer a:hover { color:#fff; text-decoration:underline; }
+    footer h4 { color:#fff; font-size:1rem; }
+    footer ul { list-style:none; padding:0; margin:0; }
+    footer li { margin-bottom:.4rem; }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container d-flex justify-content-between">
+    <span>Specialist technology, delivered worldwide</span>
+    <a href="#contact">Contact us</a>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#top">NEX<span>ORA</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+        <li class="nav-item"><a class="nav-link active" href="#top">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#glance">At a glance</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Services
-          </a>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Markets</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#markets">Audio and visual</a></li>
+            <li><a class="dropdown-item" href="#markets">Cloud and infrastructure</a></li>
+            <li><a class="dropdown-item" href="#markets">Software and data</a></li>
+            <li><a class="dropdown-item" href="#markets">Security</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Contact</a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="#why">Why NEXORA</a></li>
+        <li class="nav-item"><a class="nav-link" href="#leadership">Leadership</a></li>
+        <li class="nav-item"><a class="btn btn-brand ms-lg-2" href="#contact">Contact</a></li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
- <div class="container text-center">
-  <div class="row">
-    <div class="col-sm-8">col-sm-8</div>
-    <div class="col-sm-4">col-sm-4</div>
-  </div>
-</div>
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+<main>
+  <header class="hero" id="top">
+    <div class="container">
+      <h1>Professional technology that delivers real results</h1>
+      <p class="mt-4">NEXORA connects the world's leading technology brands with the customers who need them, through specialist teams and partnerships built on trust.</p>
+      <div class="d-flex flex-wrap gap-3 mt-4">
+        <a href="#glance" class="btn btn-brand btn-lg">About NEXORA</a>
+        <a href="#markets" class="btn btn-line btn-lg">Explore our markets</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container stats">
+    <div class="box">
+      <div class="row row-cols-2 row-cols-lg-4 g-3">
+        <div class="col"><div class="stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <strong>$100M+</strong><span>Revenue</span></div></div>
+        <div class="col"><div class="stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <strong>25</strong><span>Specialist teams</span></div></div>
+        <div class="col"><div class="stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2 21a7 7 0 0 1 14 0"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14a5 5 0 0 1 5 5"/></svg>
+          <strong>500+</strong><span>Colleagues</span></div></div>
+        <div class="col"><div class="stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+          <strong>30+</strong><span>Countries served</span></div></div>
       </div>
     </div>
   </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+  <section class="impact" id="glance">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <div class="tag">The NEXORA impact</div>
+          <h2>A trusted partner for professional technology</h2>
+          <hr class="rule">
+          <p>We bring together specialist teams with deep product knowledge, direct market access and long-term partnerships. The result is technology that performs where it matters: in classrooms, offices, venues and data centres.</p>
+          <a href="#why" class="btn btn-brand mt-2">NEXORA at a glance</a>
+        </div>
+        <div class="col-lg-6"><img class="img-fluid rounded-4 shadow" src="https://picsum.photos/seed/nexora-team/900/600" alt="NEXORA specialists working together" loading="lazy"></div>
       </div>
     </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+  </section>
+
+  <section class="bg-soft" id="markets">
+    <div class="container">
+      <div class="row mb-5"><div class="col-lg-8">
+        <div class="tag">Where we play</div>
+        <h2>The power of professional technology</h2>
+        <hr class="rule">
+        <p class="text-secondary">NEXORA-enabled technology supports the moments that matter in education, the workplace, entertainment and the home.</p>
+      </div></div>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4">
+        <div class="col"><div class="card market"><img src="https://picsum.photos/seed/nexora-av/600/400" class="card-img-top" alt="Conference room with large display" loading="lazy"><div class="card-body"><h3 class="h5">Audio and visual</h3><p>Immersive communication for classrooms, offices and stadiums.</p></div></div></div>
+        <div class="col"><div class="card market"><img src="https://picsum.photos/seed/nexora-cloud/600/400" class="card-img-top" alt="Server racks in a data centre" loading="lazy"><div class="card-body"><h3 class="h5">Cloud and infrastructure</h3><p>Always-on computing, networking and data-centre solutions.</p></div></div></div>
+        <div class="col"><div class="card market"><img src="https://picsum.photos/seed/nexora-code/600/400" class="card-img-top" alt="Developer writing software" loading="lazy"><div class="card-body"><h3 class="h5">Software and data</h3><p>Custom applications and analytics built for your business.</p></div></div></div>
+        <div class="col"><div class="card market"><img src="https://picsum.photos/seed/nexora-secure/600/400" class="card-img-top" alt="Cybersecurity concept" loading="lazy"><div class="card-body"><h3 class="h5">Security</h3><p>Protection and compliance for your people, devices and data.</p></div></div></div>
       </div>
     </div>
-  </div>
-</div>
-  <div class="container text-center">
-  <div class="row">
-    <div class="col-sm-8">col-sm-8</div>
-    <div class="col-sm-4">col-sm-4</div>
-  </div>
-</div>
-<div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Accordion Item #1
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>This is the first item’s accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+  </section>
+
+  <section class="why" id="why">
+    <div class="container">
+      <div class="row mb-5"><div class="col-lg-8">
+        <div class="tag">Why NEXORA</div>
+        <h2>The NEXORA difference</h2>
+        <hr class="rule">
+        <p>Specialist expertise and vendor relationships built over many years let us deliver progress and value for customers and partners alike.</p>
+      </div></div>
+      <div class="row g-4">
+        <div class="col-md-4"><img class="why-img mb-3" src="https://picsum.photos/seed/nexora-lead/800/420" alt="City skyline at dusk" loading="lazy"><h3 class="h5">Leadership in the right markets</h3><p>We lead in growing sectors where complexity is rising and barriers to entry are high.</p></div>
+        <div class="col-md-4"><img class="why-img mb-3" src="https://picsum.photos/seed/nexora-spec/800/420" alt="Engineer inspecting equipment" loading="lazy"><h3 class="h5">Specialist advantage at scale</h3><p>One partner with a services-led model that stays strong as you grow.</p></div>
+        <div class="col-md-4"><img class="why-img mb-3" src="https://picsum.photos/seed/nexora-growth/800/420" alt="Analytics dashboard" loading="lazy"><h3 class="h5">A record of growth and delivery</h3><p>Ambitious targets, met by teams that deliver on what they promise.</p></div>
       </div>
     </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        Accordion Item #2
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>This is the second item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+  </section>
+
+  <section class="engine">
+    <div class="container">
+      <div class="tag" style="color:#b9a3ff">Creating growth</div>
+      <h2>The value engine</h2>
+      <hr class="rule">
+      <p>We add the right specialist businesses, strengthen them with shared services, platforms and scale, then reinvest in disciplined growth.</p>
+      <div class="row g-4 mt-3">
+        <div class="col-md-3 col-6"><div class="step"><strong>Acquire</strong><span>Specialist businesses with deep expertise</span></div></div>
+        <div class="col-md-3 col-6"><div class="step"><strong>Strengthen</strong><span>Shared services and platform support</span></div></div>
+        <div class="col-md-3 col-6"><div class="step"><strong>Scale</strong><span>Wider reach across markets</span></div></div>
+        <div class="col-md-3 col-6"><div class="step"><strong>Reinvest</strong><span>Disciplined, sustainable growth</span></div></div>
       </div>
     </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        Accordion Item #3
-      </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>This is the third item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+  </section>
+
+  <section class="partners">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="tag">Trusted partners</div>
+        <h2>Working with the world's biggest brands</h2>
+      </div>
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3">
+        <div class="col"><div class="logo">PARTNER 1</div></div><div class="col"><div class="logo">PARTNER 2</div></div>
+        <div class="col"><div class="logo">PARTNER 3</div></div><div class="col"><div class="logo">PARTNER 4</div></div>
+        <div class="col"><div class="logo">PARTNER 5</div></div><div class="col"><div class="logo">PARTNER 6</div></div>
       </div>
     </div>
-  </div>
-</div>
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+  </section>
+
+  <section class="leaders bg-soft" id="leadership">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5"><img src="https://picsum.photos/seed/nexora-ceo/700/800" alt="NEXORA executive team" loading="lazy"></div>
+        <div class="col-lg-7">
+          <div class="tag">Executive leadership</div>
+          <h2>Trusted talent, from the top</h2>
+          <hr class="rule">
+          <p>NEXORA is led by experienced operators with a strong record in specialist technology markets. They focus on governance and long-term stewardship while empowering local teams to deliver for customers and partners.</p>
+          <a href="#contact" class="btn btn-brand">Meet our leaders</a>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container py-4">
+      <h2 class="display-6">Let's accelerate your vision</h2>
+      <p>Whether you want to scale operations, enter new markets or join our community of specialists, get in touch.</p>
+      <a href="mailto:hello@nexora.example" class="btn btn-brand btn-lg">Contact us</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-5"><a class="navbar-brand text-white" href="#top">NEX<span>ORA</span></a><p class="mt-2" style="max-width:22rem">Professional technology, delivered by specialists.</p></div>
+      <div class="col-6 col-md-3"><h4>Useful links</h4><ul><li><a href="#glance">At a glance</a></li><li><a href="#markets">Markets</a></li><li><a href="#why">Why NEXORA</a></li><li><a href="#leadership">Leadership</a></li></ul></div>
+      <div class="col-6 col-md-4"><h4>Connect with us</h4><ul><li><a href="#">LinkedIn</a></li><li><a href="#">YouTube</a></li><li><a href="mailto:hello@nexora.example">hello@nexora.example</a></li></ul></div>
+    </div>
+    <hr class="my-4" style="border-color:#2a1f4d">
+    <div class="d-flex flex-wrap justify-content-between gap-2">
+      <span>&copy; <span id="yr">2026</span> NEXORA Technologies. All rights reserved.</span>
+      <span><a href="#">Privacy</a> &nbsp;|&nbsp; <a href="#">Terms</a> &nbsp;|&nbsp; <a href="#">Accessibility</a></span>
     </div>
   </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-</div>
-<form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-<div class="card text-center">
-  <div class="card-header">
-    Featured
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-  <div class="card-footer text-body-secondary">
-    2 days ago
-  </div>
-</div>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous"></script>
-  </body>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
 </html>
